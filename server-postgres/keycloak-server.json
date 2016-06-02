@@ -76,7 +76,7 @@
 
     "truststore": {
         "file": {
-            "file": "${jboss.server.config.dir}/keycloak.jks",
+            "file": "${jboss.server.config.dir}/keystore.jks",
             "password": "Pa55word",
             "hostname-verification-policy": "WILDCARD",
             "disabled": false
