@@ -8,5 +8,5 @@ ADD module.xml /opt/jboss/keycloak/modules/system/layers/base/org/postgresql/jdb
 ADD standalone.xml /opt/jboss/keycloak/standalone/configuration/
 RUN keycloak/bin/add-user.sh -u admin -p admin
 RUN keytool -genkey -noprompt  -alias assistahealth  -dname "CN=Assista Health, OU=assista, O=IMS, C=PS"  -keystore keystore.jsk  -storepass Pa55word  -keypass Pa55word
-ADD keystore.jsk /opt/jboss/keycloak/standalone/configuration/
-ADD keycloak-server.json /opt/jboss/keycloak/standalone/configuration/
+RUN cp keystore.jsk /opt/jboss/keycloak/standalone/configuration/
+RUN cp keycloak-server.json /opt/jboss/keycloak/standalone/configuration/
