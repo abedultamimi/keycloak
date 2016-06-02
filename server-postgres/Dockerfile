@@ -1,4 +1,4 @@
-FROM jboss/keycloak:1.9.2.Final
+FROM jboss/keycloak:1.9.5.Final
 
 ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
 ADD changeDatabase.xsl /opt/jboss/keycloak/
