@@ -9,4 +9,4 @@ RUN keycloak/bin/add-user.sh -u admin -p admin
 RUN keytool -genkey -noprompt  -alias assistahealth  -dname "CN=Assista Health, OU=assista, O=IMS, C=PS"  -keystore keystore.jks  -storepass Pa55word  -keypass Pa55word
 RUN cp keystore.jks /opt/jboss/keycloak/standalone/configuration/
 ADD keycloak-server.json /opt/jboss/keycloak/standalone/configuration/
-EXPOSE 7078
+EXPOSE 7078 7070
