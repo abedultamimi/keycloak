@@ -10,4 +10,5 @@ ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralp
 RUN keytool -genkey -noprompt  -alias assistahealth  -dname "CN=Assista Health, OU=assista, O=IMS, C=PS"  -keystore keystore.jks  -storepass Pa55word  -keypass Pa55word
 RUN cp keystore.jks /opt/jboss/keycloak/standalone/configuration/
 ADD keycloak-server.json /opt/jboss/keycloak/standalone/configuration/
-EXPOSE 8080
+EXPOSE 8080 7070
+ENTRYPOINT ["/auth"]
