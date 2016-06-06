@@ -360,7 +360,7 @@
             <buffer-cache name="default"/>
             <server name="default-server">
                 <https-listener name="https" socket-binding="proxy-https" security-realm="UndertowRealm"/>
-                <http-listener name="default" socket-binding="http" redirect-socket="proxy-https"/>
+              <http-listener name="default" socket-binding="http" proxy-address-forwarding="true" redirect-socket="proxy-https"/>
                 <host name="default-host" alias="localhost">
                     <location name="/" handler="welcome-content"/>
                     <filter-ref name="server-header"/>
@@ -397,10 +397,10 @@
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" interface="public" port="${jboss.http.port:8080}"/>
 
-        <socket-binding name="proxy-https" interface="public" port="7070"/>
+        <socket-binding name="proxy-https" interface="public" port="443"/>
 
          <!--<socket-binding name="http" port="${jboss.http.port:8080}"/>-->
-        <!-- <socket-binding name="https" port="${jboss.https.port:7070}"/> -->
+         <socket-binding name="https" port="${jboss.https.port:8443}"/> 
         <socket-binding name="txn-recovery-environment" port="4712"/>
         <socket-binding name="txn-status-manager" port="4713"/>
         <outbound-socket-binding name="mail-smtp">
