@@ -6,6 +6,7 @@ RUN mkdir -p /opt/jboss/keycloak/modules/system/layers/base/org/postgresql/jdbc/
 ADD module.xml /opt/jboss/keycloak/modules/system/layers/base/org/postgresql/jdbc/main/
 ADD standalone.xml /opt/jboss/keycloak/standalone/configuration/
 RUN keycloak/bin/add-user-keycloak.sh -r master -u admin -p admin
+ADD http://www.random.org/strings/?num=10&len=8&digits=on&upperalpha=on&loweralpha=on&unique=on&format=plain&rnd=new uuid
 RUN keytool -genkey -noprompt  -alias assistahealth  -dname "CN=Assista Health, OU=assista, O=IMS, C=PS"  -keystore keystore.jks  -storepass Pa55word  -keypass Pa55word
 RUN cp keystore.jks /opt/jboss/keycloak/standalone/configuration/
 ADD keycloak-server.json /opt/jboss/keycloak/standalone/configuration/
