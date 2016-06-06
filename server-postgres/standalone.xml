@@ -397,7 +397,7 @@
         <socket-binding name="ajp" port="${jboss.ajp.port:8009}"/>
         <socket-binding name="http" interface="public" port="${jboss.http.port:8080}"/>
 
-         <socket-binding name="proxy-https" port="${env.PROXY_HTTPS_PORT:443}"/>
+         <socket-binding name="proxy-https" interface="public" port="${env.PROXY_HTTPS_PORT:443}"/>
 
          <!--<socket-binding name="http" port="${jboss.http.port:8080}"/>-->
          <socket-binding name="https" port="${jboss.https.port:8443}"/> 
