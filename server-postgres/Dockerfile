@@ -5,7 +5,7 @@ RUN java -jar /usr/share/java/saxon.jar -s:/opt/jboss/keycloak/standalone/config
 RUN mkdir -p /opt/jboss/keycloak/modules/system/layers/base/org/postgresql/jdbc/main; cd /opt/jboss/keycloak/modules/system/layers/base/org/postgresql/jdbc/main; curl -O http://central.maven.org/maven2/org/postgresql/postgresql/9.3-1102-jdbc3/postgresql-9.3-1102-jdbc3.jar
 ADD module.xml /opt/jboss/keycloak/modules/system/layers/base/org/postgresql/jdbc/main/
 ADD standalone.xml /opt/jboss/keycloak/standalone/configuration/
-RUN keycloak/bin/add-user.sh -u admin -p admin
+RUN keycloak/bin/add-user-keycloak.sh -r master -u admin -p admin
 RUN keytool -genkey -noprompt  -alias assistahealth  -dname "CN=Assista Health, OU=assista, O=IMS, C=PS"  -keystore keystore.jks  -storepass Pa55word  -keypass Pa55word
 RUN cp keystore.jks /opt/jboss/keycloak/standalone/configuration/
 ADD keycloak-server.json /opt/jboss/keycloak/standalone/configuration/
